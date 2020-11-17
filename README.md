@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Ruby on Rails Mini Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Frontend Repo](https://github.com/josilob/TUNR-front)
 
-## Available Scripts
+- [Backend Repo](https://github.com/josilob/TUNR-back)
 
-In the project directory, you can run:
+- [Frontend Deployed](https://boj-tunr.netlify.app/)
 
-### `yarn start`
+- [Backend Deployed](https://rails-api-boj.herokuapp.com/songs)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For this lab, your goal is to build a simple CRUD app with Ruby on Rails on the back-end and React on the front-end.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `yarn test`
+- Rails, Ruby and React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React, Components, State and Props
 
-### `yarn build`
+- React Component Lifecycle Methods (useEffect)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Fork and Clone this repo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fulfill the listed requirements.
 
-### `yarn eject`
+1. Create a Pull request on this repository with links to your repo(s).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img  src="https://i.imgur.com/Wj4Yg08.png"  width="600px"  />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Unlike most labs, for this one you will submit your work by **making a pull request**. If a pull request has not been performed up until now then the instructor will walk the class through performing one at the completion of this readme.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Use this repo to include both the frontend and backend servers.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The frontend and the backend should be in two separate folders. They will each need to be a github repository.
 
-## Learn More
+## Requirements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Build a simple CRUD/RoR app! Keep it very simple: **only** 1 model with full CRUD.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Your app will need to replicate the functionality and style of the Tunr image above. The app should:
 
-### Code Splitting
+- Only have one page, the homepage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Display a playlist and a favorite song list on the homepage
 
-### Analyzing the Bundle Size
+- Allow users to add a new song that has a title, artist and time (length of playtime) to a playlist
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Allow users to favorite a song. When they favorite a song, a heart should appear next to the song in the playlist and the song should appear underneath the Favorite Songs List.
 
-### Making a Progressive Web App
+- Allow users to remove the song from the playlist
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Presentation
 
-### Advanced Configuration
+Don't forget: a **technical demonstration** of your app which:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Is ~5 minutes in length
 
-### Deployment
+- Shows off all features of the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Explains the technical details
 
-### `yarn build` fails to minify
+- Explains the technical challenges
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Explains which improvements you might make
+
+<hr>
