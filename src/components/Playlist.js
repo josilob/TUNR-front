@@ -5,15 +5,7 @@ const Playlist = (props) => {
 
 	const loaded = () => {
 		const JSX = songs.map((song) => {
-			const favSong = song.fav ? (
-				<span color='red'>
-					<i className='fa-heart'></i>
-				</span>
-			) : (
-				<>
-					<i className='fas fa-heart'></i>
-				</>
-			);
+			const favSong = <i class='far fa-heart'></i>;
 			return (
 				<div id='songs' key={song.id}>
 					<div className='title-time-buttons'>
