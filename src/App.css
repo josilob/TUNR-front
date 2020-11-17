@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #19323c;
+	font-family: 'Special Elite', cursive;
+}
+h1,
+h2,
+input {
+	font-family: 'Fira Sans', sans-serif;
+}
+body {
+	border-radius: 15px;
+	max-width: 700px;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+#head {
+	display: flex;
+	justify-content: space-between;
+	height: 90px;
+}
+h1 {
+	margin-top: 10px;
+	margin-left: 40px;
+	font-size: 44px;
+}
+h2 {
+	font-size: 30px;
+}
+#title {
+	margin-top: 60px;
+	margin-right: 40px;
+	font-size: 14px;
+}
+hr {
+	width: 90%;
+	margin: 0 auto;
+	background-color: brown;
+	height: 4px;
+}
+#playlist-title {
+	justify-content: left;
+	margin: 20px 40px;
+}
+#playlist-container {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 90px;
+}
+.title-time-buttons {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+	line-height: 1.5;
+}
+#songs {
+	display: flex;
+	justify-content: space-between;
+	width: 550px;
+	margin: 10px 0;
+}
+#song-title {
+	color: #5c7d8b;
+	margin-bottom: 3px;
+}
+#artist {
+	margin-top: 8px;
+}
+button {
+	width: 50px;
+	margin-top: 6px;
+}
+#fav-title,
+#fav-sub,
+#add,
+#fav-songs {
+	font-size: 28px;
+	margin-bottom: 25px;
+	margin-left: 40px;
+}
+#fav-sub {
+	font-size: 15px;
+}
+#add {
+	font-size: 32px;
+	margin-top: 30px;
+}
+.songForm {
+	margin: 0 auto;
+	text-align: center;
+}
+input {
+	width: 90%;
+	margin: 10px 0;
+	height: 34px;
+	text-align: center;
+	border-radius: 5px;
+}
+#submit-btn {
+	background-color: #a93e55;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+#fav-songs {
+	font-size: 16px;
+	text-align: center;
+	margin-top: 20px;
+}
