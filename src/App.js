@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
-	const url = 'http://localhost:3000';
+	const url = 'https://rails-api-boj.herokuapp.com';
 
 	const emptySong = {
 		title: '',
