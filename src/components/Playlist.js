@@ -7,7 +7,7 @@ const Playlist = (props) => {
 		const JSX = songs.map((song) => {
 			const favSong = song.fav ? (
 				<span color='red'>
-					<i className='fas fa-heart'></i>
+					<i className='fa-heart'></i>
 				</span>
 			) : (
 				<>
