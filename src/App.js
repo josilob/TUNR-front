@@ -67,11 +67,17 @@ function App() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(song),
-			}).then((response) => getSongs());
+			}).then((res) => getSongs());
 			console.log('Updated song: ', song);
 		} catch (err) {
 			console.log(err);
 		}
+	};
+
+	const handleFave = (e, song) => {
+		e.preventDefault();
+		const updatedSong = { ...song, fav: !song.fav };
+		updateSong(updatedSong);
 	};
 
 	return (
@@ -93,10 +99,11 @@ function App() {
 										songs={songs}
 										deleteSong={deleteSong}
 										updateSong={updateSong}
+										handleFave={handleFave}
 									/>
 								</div>
 
-								<Favorites faveSongs={faveSongs} updateSong={updateSong} />
+								<Favorites faveSongs={faveSongs} handleFave={handleFave} />
 								<h2 id='add'>ADD A NEW Song</h2>
 								<Form
 									label='ADD NEW SONG'

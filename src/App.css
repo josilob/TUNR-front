@@ -8,6 +8,9 @@
 	color: #19323c;
 	font-family: 'Special Elite', cursive;
 }
+.App {
+	margin: 20px;
+}
 h1,
 h2,
 input {

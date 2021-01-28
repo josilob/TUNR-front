@@ -1,12 +1,8 @@
 import React from 'react';
 
-const Playlist = ({ updateSong, deleteSong, songs }) => {
+const Playlist = ({ handleFave, updateSong, deleteSong, songs }) => {
 	// Update favorite status of the song (AS OBJECT!)
-	const handleFave = (e, song) => {
-		e.preventDefault();
-		const updatedSong = { ...song, fav: !song.fav };
-		updateSong(updatedSong);
-	};
+
 
 	const loaded = () => {
 		const JSX = songs.map((song) => {

@@ -1,20 +1,20 @@
 import React from 'react';
 
-const Favorites = (props) => {
-	const favesLoaded = props.faveSongs.map((fave, index) => {
+const Favorites = ({ faveSongs, handleFave }) => {
+	const favesLoaded = faveSongs.map((fave, index) => {
 		return (
 			<div className='songs' key={fave.id}>
 				<p className='title'>Title : {fave.title}</p>
 				<p className='artist'>Artist : {fave.artist}</p>
 				<p className='time'>Duration : {fave.time}</p>
 				<button>
-					<i className='fas fa-heart'></i>
+					<i className='fas fa-heart' onClick={(e) => handleFave(e, fave)}></i>
 				</button>
 			</div>
 		);
 	});
 	const loading = 'Add some songs to favorite section!';
-	const display = props.faveSongs.length > 0 ? favesLoaded : loading;
+	const display = faveSongs.length > 0 ? favesLoaded : loading;
 
 	return (
 		<>
