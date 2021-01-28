@@ -34,19 +34,24 @@ function App() {
 
 	//  FILTER FAVORITED SONGS
 	const faveSongs = songs.filter((song) => song.fav);
-	console.log(faveSongs);
+	// console.log(faveSongs);
 
 	// ####### HTTP REQUESTS ####### //
 
 	//CREATE SONGS
 	const handleCreate = async (newSong) => {
-		fetch(url + '/songs/', {
-			method: 'post',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(newSong),
-		}).then((response) => getSongs());
+		try {
+			await fetch(url + '/songs/', {
+				method: 'post',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(newSong),
+			});
+			getSongs();
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	//DELETE SONGS
@@ -57,19 +62,19 @@ function App() {
 	};
 
 	//UPDATE SONG
-	const updateSong = (song) => {
+	const updateSong = async (song) => {
 		try {
-			console.log('Updating song: ', song);
-			fetch(`${url}/songs/${song.id}`, {
+			await fetch(`${url}/songs/${song.id}`, {
 				method: 'put',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(song),
-			}).then((res) => getSongs());
-			console.log('Updated song: ', song);
+			});
+			getSongs();
 		} catch (err) {
 			console.log(err);
+		} finally {
 		}
 	};
 

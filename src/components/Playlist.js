@@ -35,4 +35,3 @@ const Playlist = ({ handleFave, deleteSong, songs }) => {
 	return songs.length > 0 ? loaded() : <h1>Loading...</h1>;
 };
 export default Playlist;
-//
