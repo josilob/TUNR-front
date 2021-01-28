@@ -16,7 +16,6 @@ function App() {
 		fav: false,
 	};
 	const [songs, setSongs] = useState([]);
-	const [favorites, setFavorites] = useState([]);
 
 	//FETCH SONGS
 	const getSongs = async () => {
@@ -98,7 +97,6 @@ function App() {
 									<Playlist
 										songs={songs}
 										deleteSong={deleteSong}
-										updateSong={updateSong}
 										handleFave={handleFave}
 									/>
 								</div>
