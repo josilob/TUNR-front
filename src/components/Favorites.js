@@ -1,31 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Favorites = (props) => {
-	const [faves, setFaves] = React.useState(props.favorites);
-
-	useEffect(() => {
-		setFaves(props.favorites);
-	}, [props.favorites]);
-
-	const favesLoaded = faves.map((fave, index) => {
+	const favesLoaded = props.faveSongs.map((fave, index) => {
 		return (
 			<>
 				<div className='songs' key={fave.id}>
 					<p className='title'>Title : {fave.title}</p>
 					<p className='artist'>Artist : {fave.artist}</p>
 					<p className='time'>Duration : {fave.time}</p>
-					<button
-						onClick={() => {
-							props.toggleFave(fave);
-						}}>
-						<i class='fas fa-heart'></i>
+					{/* Button that toggles favorites on click in FAV LIST */}
+					<button>
+						<i className='fas fa-heart'></i>
 					</button>
 				</div>
 			</>
 		);
 	});
 	const loading = 'Add some songs to favorite section!';
-	const display = props.favorites.length > 0 ? favesLoaded : loading;
+	const display = props.faveSongs.length > 0 ? favesLoaded : loading;
 
 	return (
 		<>

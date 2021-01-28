@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/Form';
 import Playlist from './components/Playlist';
@@ -13,25 +13,34 @@ function App() {
 		title: '',
 		artist: '',
 		time: '',
+		fav: false,
 	};
-	const [songs, setSongs] = React.useState(emptySong);
-	const [favorites, setFavorites] = React.useState([]);
+	const [songs, setSongs] = useState([]);
+	const [favorites, setFavorites] = useState([]);
 
-	//fetch songs
-	const getSongs = () => {
-		fetch(url + '/songs/')
-			.then((response) => response.json())
-			.then((data) => {
-				setSongs(data.songs);
-			});
+	//FETCH SONGS
+	const getSongs = async () => {
+		try {
+			const res = await fetch(url + '/songs/');
+			const data = await res.json();
+			setSongs(data.songs);
+		} catch (err) {
+			console.log(err);
+		}
 	};
-	//get songs on page load
-	React.useEffect(() => {
+	//SHOW SONGS ON PAGE LOAD
+	useEffect(() => {
 		getSongs();
 	}, []);
 
-	//create songs
-	const handleCreate = (newSong) => {
+	//  FILTER FAVORITED SONGS
+	const faveSongs = songs.filter((song) => song.fav);
+	console.log(faveSongs);
+
+	// ####### HTTP REQUESTS ####### //
+
+	//CREATE SONGS
+	const handleCreate = async (newSong) => {
 		fetch(url + '/songs/', {
 			method: 'post',
 			headers: {
@@ -41,19 +50,30 @@ function App() {
 		}).then((response) => getSongs());
 	};
 
-	//delete song
+	//DELETE SONGS
 	const deleteSong = (song) => {
 		fetch(url + '/songs/' + song.id, {
 			method: 'delete',
 		}).then((response) => getSongs());
 	};
 
-	const toggleFave = (song) => {
-		const favs = [...favorites];
-		const idx = favs.indexOf(song);
-		favs.includes(song) ? favs.splice(idx, 1) : favs.push(song);
-		setFavorites(favs);
+	//UPDATE SONG
+	const updateSong = (song) => {
+		try {
+			console.log('Updating song: ', song);
+			fetch(`${url}/songs/${song.id}`, {
+				method: 'put',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(song),
+			}).then((response) => getSongs());
+			console.log('Updated song: ', song);
+		} catch (err) {
+			console.log(err);
+		}
 	};
+
 	return (
 		<Router>
 			<div className='App'>
@@ -62,33 +82,29 @@ function App() {
 					<h6 id='title'>FOR ALL YOUR PLAYLIST NEEDS</h6>
 				</div>
 				<hr />
-				<h2 id='playlist-title'>PLAYLIST 1</h2>
+				<h2 id='playlist-title'>PLAYLIST</h2>
 
 				<main id='mainbox'>
 					<Switch>
-						<Route
-							exact
-							path='/'
-							render={(rp) => (
-								<div>
-									<div id='playlist-container'>
-										<Playlist
-											songs={songs}
-											deleteSong={deleteSong}
-											toggleFave={toggleFave}
-										/>
-									</div>
-
-									<Favorites favorites={favorites} toggleFave={toggleFave} />
-									<h2 id='add'>ADD A NEW Song</h2>
-									<Form
-										label='ADD NEW SONG'
-										song={emptySong}
-										handleSubmit={handleCreate}
+						<Route exact path='/'>
+							<div>
+								<div id='playlist-container'>
+									<Playlist
+										songs={songs}
+										deleteSong={deleteSong}
+										updateSong={updateSong}
 									/>
 								</div>
-							)}
-						/>
+
+								<Favorites faveSongs={faveSongs} updateSong={updateSong} />
+								<h2 id='add'>ADD A NEW Song</h2>
+								<Form
+									label='ADD NEW SONG'
+									song={emptySong}
+									handleSubmit={handleCreate}
+								/>
+							</div>
+						</Route>
 					</Switch>
 				</main>
 			</div>

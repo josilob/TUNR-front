@@ -1,17 +1,12 @@
 import React from 'react';
 
 const Form = (props) => {
-	const emptySong = {
-		title: '',
-		artist: '',
-		time: '',
-	};
 	const [formData, setFormData] = React.useState(props.song);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		props.handleSubmit(formData);
-		setFormData(emptySong);
+		setFormData(props.song);
 	};
 
 	const handleChange = (event) => {
